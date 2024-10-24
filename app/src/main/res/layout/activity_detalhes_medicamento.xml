@@ -1,51 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#000000">
+    android:background="#000000"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/txtNomeDetalhes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="10dp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtLaboratorioDetalhes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:textColor="#FFFFFF"
-        android:layout_below="@id/txtNomeDetalhes"
-        android:layout_marginBottom="10dp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtDosagemDetalhes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:textColor="#FFFFFF"
-        android:layout_below="@id/txtLaboratorioDetalhes"
-        android:layout_marginBottom="10dp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtTipoDetalhes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:textColor="#FFFFFF"
-        android:layout_below="@id/txtDosagemDetalhes"
-        android:layout_marginBottom="10dp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtPrecoDetalhes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:textColor="#FFFFFF"
-        android:layout_below="@id/txtTipoDetalhes"
-        android:layout_marginBottom="20dp" />
-</RelativeLayout>
+        android:textSize="18sp" />
+
+    <!-- Botão de Atualizar Medicamento -->
+    <Button
+        android:id="@+id/btnAtualizarMedicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atualizar Medicamento"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginTop="16dp" />
+
+    <!-- Botão de Excluir Medicamento -->
+    <Button
+        android:id="@+id/btnExcluirMedicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excluir Medicamento"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#F44336"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

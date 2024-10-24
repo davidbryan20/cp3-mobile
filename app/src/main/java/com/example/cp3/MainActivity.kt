@@ -1,17 +1,18 @@
-package com.example.cp3_mobile
+package com.example.cp3
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cp3.R
-import com.example.cp3_mobile.telas.AdicionarMedicamentoActivity
-import com.example.cp3_mobile.telas.ListaMedicamentosActivity
+import com.example.cp3.telas.AdicionarMedicamentoActivity
+import com.example.cp3.telas.IntegrantesActivity
+import com.example.cp3.telas.ListaMedicamentosActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnAdicionarMedicamento: Button
     private lateinit var btnListaMedicamentos: Button
+    private lateinit var btnIntegrantes: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         btnAdicionarMedicamento = findViewById(R.id.btnAdicionarMedicamento)
         btnListaMedicamentos = findViewById(R.id.btnListaMedicamentos)
+        btnIntegrantes= findViewById(R.id.btnIntegrantes)
 
         // Navegar para Adicionar Medicamento
         btnAdicionarMedicamento.setOnClickListener {
@@ -29,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         // Navegar para Lista de Medicamentos
         btnListaMedicamentos.setOnClickListener {
             val intent = Intent(this, ListaMedicamentosActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnIntegrantes.setOnClickListener{
+            val intent = Intent(this, IntegrantesActivity:: class.java)
             startActivity(intent)
         }
     }

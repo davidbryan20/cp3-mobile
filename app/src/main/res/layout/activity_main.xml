@@ -30,5 +30,13 @@
         android:text="Lista de Medicamentos"
         android:textColor="@android:color/white"
     android:background="@android:color/darker_gray"/>
+    <Button
+        android:id="@+id/btnIntegrantes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Integrantes"
+        android:textColor="@android:color/white"
+        android:background="@android:color/darker_gray"/>
 
 </LinearLayout>

@@ -5,19 +5,10 @@
     android:background="#000000"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnAdicionarMedicamento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicionar Medicamento"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#3F51B5" />
-
     <ListView
         android:id="@+id/listViewMedicamentos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="#FFFFFF"
-        android:dividerHeight="1dp"
-        android:layout_marginTop="16dp" />
+        android:dividerHeight="1dp" />
 </LinearLayout>

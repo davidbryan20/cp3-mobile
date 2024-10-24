@@ -1,14 +1,13 @@
-package com.example.cp3_mobile.adapter
+package com.example.cp3.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.BaseAdapter
+import android.widget.TextView
 import com.example.cp3.R
-import com.example.cp3_farmacia.model.Medicamento
-
+import com.example.cp3.model.Medicamento
 
 class MedicamentoAdapter(
     private val context: Context,
@@ -55,6 +54,11 @@ class MedicamentoAdapter(
 
     fun addAll(medicamentos: List<Medicamento>) {
         listaMedicamentos.addAll(medicamentos)
+        notifyDataSetChanged()
+    }
+
+    fun remove(medicamento: Medicamento) {
+        listaMedicamentos.remove(medicamento)
         notifyDataSetChanged()
     }
 }

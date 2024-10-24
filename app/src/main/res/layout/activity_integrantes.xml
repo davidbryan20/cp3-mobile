@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#000000"
+    android:id="@+id/main">
+
+    <TextView
+        android:id="@+id/txtIntegrantes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Integrantes do Projeto"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/txtDavid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="David Bryan - RM551236"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_below="@id/txtIntegrantes"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/txtIgor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Igor Ribeiro Bezerra - RM550989"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_below="@id/txtDavid" />
+</RelativeLayout>

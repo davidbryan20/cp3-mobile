@@ -1,4 +1,4 @@
-package com.example.cp3_mobile.telas
+package com.example.cp3.telas
 
 import android.os.Bundle
 import android.widget.Button
@@ -6,65 +6,67 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cp3.R
-import com.example.cp3_farmacia.model.Medicamento
-import com.example.cp3_mobile.db.MedicamentoDAO
-
+import com.example.cp3.db.MedicamentoDAO
+import com.example.cp3.model.Medicamento
 
 class AdicionarMedicamentoActivity : AppCompatActivity() {
-    private lateinit var edtNome: EditText
-    private lateinit var edtLaboratorio: EditText
-    private lateinit var edtDosagem: EditText
-    private lateinit var edtTipo: EditText
-    private lateinit var edtPreco: EditText
+    private lateinit var editNome: EditText
+    private lateinit var editLaboratorio: EditText
+    private lateinit var editDosagem: EditText
+    private lateinit var editTipo: EditText
+    private lateinit var editPreco: EditText
     private lateinit var btnSalvar: Button
     private lateinit var medicamentoDAO: MedicamentoDAO
+    private var medicamentoId: Long = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_adicionar_medicamento)
 
-        edtNome = findViewById(R.id.edtNome)
-        edtLaboratorio = findViewById(R.id.edtLaboratorio)
-        edtDosagem = findViewById(R.id.edtDosagem)
-        edtTipo = findViewById(R.id.edtTipo)
-        edtPreco = findViewById(R.id.edtPreco)
+        editNome = findViewById(R.id.editNome)
+        editLaboratorio = findViewById(R.id.editLaboratorio)
+        editDosagem = findViewById(R.id.editDosagem)
+        editTipo = findViewById(R.id.editTipo)
+        editPreco = findViewById(R.id.editPreco)
         btnSalvar = findViewById(R.id.btnSalvar)
         medicamentoDAO = MedicamentoDAO(this)
 
-        val medicamentoId = intent.getLongExtra("medicamento_id", -1)
-
-        // Se estiver editando, preencher os campos
+        medicamentoId = intent.getLongExtra("medicamento_id", -1)
         if (medicamentoId != -1L) {
+            // Carrega os dados do medicamento para edição
             val medicamento = medicamentoDAO.obterMedicamentoPorId(medicamentoId)
             medicamento?.let {
-                edtNome.setText(it.nome)
-                edtLaboratorio.setText(it.laboratorio)
-                edtDosagem.setText(it.dosagem)
-                edtTipo.setText(it.tipo)
-                edtPreco.setText(it.preco.toString())
+                editNome.setText(it.nome)
+                editLaboratorio.setText(it.laboratorio)
+                editDosagem.setText(it.dosagem)
+                editTipo.setText(it.tipo)
+                editPreco.setText(it.preco.toString())
             }
         }
 
         btnSalvar.setOnClickListener {
-            val nome = edtNome.text.toString()
-            val laboratorio = edtLaboratorio.text.toString()
-            val dosagem = edtDosagem.text.toString()
-            val tipo = edtTipo.text.toString()
-            val preco = edtPreco.text.toString().toDoubleOrNull() ?: 0.0
+            // Salvar lógica, seja para adicionar ou atualizar
+            val nome = editNome.text.toString()
+            val laboratorio = editLaboratorio.text.toString()
+            val dosagem = editDosagem.text.toString()
+            val tipo = editTipo.text.toString()
+            val preco = editPreco.text.toString().toDoubleOrNull()
 
-            if (nome.isNotBlank() && laboratorio.isNotBlank()) {
-                val medicamento = Medicamento(medicamentoId, nome, laboratorio, dosagem, tipo, preco)
-
-                if (medicamentoId == -1L) {
-                    medicamentoDAO.inserirMedicamento(medicamento)
-                    Toast.makeText(this, "Medicamento adicionado", Toast.LENGTH_SHORT).show()
+            if (preco != null) {
+                if (medicamentoId != -1L) {
+                    // Atualiza medicamento
+                    val medicamentoAtualizado = Medicamento(medicamentoId, nome, laboratorio, dosagem, tipo, preco)
+                    medicamentoDAO.atualizarMedicamento(medicamentoAtualizado)
+                    Toast.makeText(this, "Medicamento atualizado com sucesso", Toast.LENGTH_SHORT).show()
                 } else {
-                    medicamentoDAO.atualizarMedicamento(medicamento)
-                    Toast.makeText(this, "Medicamento atualizado", Toast.LENGTH_SHORT).show()
+                    // Adiciona novo medicamento
+                    val novoMedicamento = Medicamento(nome = nome, laboratorio = laboratorio, dosagem = dosagem, tipo = tipo, preco = preco)
+                    medicamentoDAO.inserirMedicamento(novoMedicamento)
+                    Toast.makeText(this, "Medicamento adicionado com sucesso", Toast.LENGTH_SHORT).show()
                 }
-                finish()
+                finish() // Volta para a lista de medicamentos
             } else {
-                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Preço inválido", Toast.LENGTH_SHORT).show()
             }
         }
     }

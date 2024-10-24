@@ -1,10 +1,10 @@
-package com.example.cp3_mobile.db
+package com.example.cp3.db
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.cp3_farmacia.model.Medicamento
+import com.example.cp3.model.Medicamento
 
 class MedicamentoDAO(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -110,6 +110,11 @@ class MedicamentoDAO(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             put(COLUMN_PRECO, medicamento.preco)
         }
         db.update(TABLE_MEDICAMENTOS, contentValues, "$COLUMN_ID = ?", arrayOf(medicamento.id.toString()))
+        db.close()
+    }
+    fun excluirMedicamento(id: Long) {
+        val db = writableDatabase
+        db.delete(TABLE_MEDICAMENTOS, "$COLUMN_ID = ?", arrayOf(id.toString()))
         db.close()
     }
     }

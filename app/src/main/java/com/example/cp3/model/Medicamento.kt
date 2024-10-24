@@ -1,4 +1,4 @@
-package com.example.cp3_farmacia.model
+package com.example.cp3.model
 
 data class Medicamento(
     var id: Long = 0,
