@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#000000">
+
+    <TextView
+        android:id="@+id/txtNomeDetalhes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/txtLaboratorioDetalhes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/txtNomeDetalhes"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/txtDosagemDetalhes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/txtLaboratorioDetalhes"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/txtTipoDetalhes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/txtDosagemDetalhes"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/txtPrecoDetalhes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/txtTipoDetalhes"
+        android:layout_marginBottom="20dp" />
+</RelativeLayout>

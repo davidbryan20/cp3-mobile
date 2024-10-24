@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#000000">
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome do Medicamento"
+        android:textColorHint="#AAAAAA"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/edtLaboratorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Laboratório"
+        android:textColorHint="#AAAAAA"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/edtNome"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/edtDosagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dosagem"
+        android:textColorHint="#AAAAAA"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/edtLaboratorio"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/edtTipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tipo"
+        android:textColorHint="#AAAAAA"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/edtDosagem"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/edtPreco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Preço"
+        android:textColorHint="#AAAAAA"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/edtTipo"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:textColor="#FFFFFF"
+        android:background="#00C853"
+        android:layout_below="@id/edtPreco" />
+
+</RelativeLayout>
