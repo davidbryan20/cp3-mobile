@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cp3.R
-import com.example.cp3.db.MedicamentoDAO
+import com.example.cp3_mobile.db.MedicamentoDAO
 
 class DetalhesMedicamentoActivity : AppCompatActivity() {
     private lateinit var txtNomeDetalhes: TextView

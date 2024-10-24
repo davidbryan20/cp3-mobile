@@ -9,13 +9,17 @@ import android.widget.BaseAdapter
 import com.example.cp3.R
 import com.example.cp3_farmacia.model.Medicamento
 
-class MedicamentoAdapter(private val context: Context, private val listaMedicamentos: List<Medicamento>) : BaseAdapter() {
+
+class MedicamentoAdapter(
+    private val context: Context,
+    private var listaMedicamentos: MutableList<Medicamento>
+) : BaseAdapter() {
 
     override fun getCount(): Int {
         return listaMedicamentos.size
     }
 
-    override fun getItem(position: Int): Any {
+    override fun getItem(position: Int): Medicamento {
         return listaMedicamentos[position]
     }
 
@@ -24,18 +28,33 @@ class MedicamentoAdapter(private val context: Context, private val listaMedicame
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_medicamento, parent, false)
+        val view: View = convertView ?: LayoutInflater.from(context)
+            .inflate(R.layout.item_medicamento, parent, false)
 
-        val txtNome = view.findViewById<TextView>(R.id.txtNomeMedicamento)
-        val txtLaboratorio = view.findViewById<TextView>(R.id.txtLaboratorioMedicamento)
-        val txtPreco = view.findViewById<TextView>(R.id.txtPrecoMedicamento)
+        val medicamento = getItem(position)
 
-        val medicamento = listaMedicamentos[position]
+        val txtNome = view.findViewById<TextView>(R.id.txtNome)
+        val txtLaboratorio = view.findViewById<TextView>(R.id.txtLaboratorio)
+        val txtDosagem = view.findViewById<TextView>(R.id.txtDosagem)
+        val txtTipo = view.findViewById<TextView>(R.id.txtTipo)
+        val txtPreco = view.findViewById<TextView>(R.id.txtPreco)
 
         txtNome.text = medicamento.nome
         txtLaboratorio.text = medicamento.laboratorio
+        txtDosagem.text = medicamento.dosagem
+        txtTipo.text = medicamento.tipo
         txtPreco.text = "R$ ${medicamento.preco}"
 
         return view
+    }
+
+    fun clear() {
+        listaMedicamentos.clear()
+        notifyDataSetChanged()
+    }
+
+    fun addAll(medicamentos: List<Medicamento>) {
+        listaMedicamentos.addAll(medicamentos)
+        notifyDataSetChanged()
     }
 }

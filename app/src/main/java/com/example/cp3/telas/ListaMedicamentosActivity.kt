@@ -6,8 +6,8 @@ import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cp3.R
-import com.example.cp3.db.MedicamentoDAO
 import com.example.cp3_mobile.adapter.MedicamentoAdapter
+import com.example.cp3_mobile.db.MedicamentoDAO
 
 class ListaMedicamentosActivity : AppCompatActivity() {
     private lateinit var listViewMedicamentos: ListView

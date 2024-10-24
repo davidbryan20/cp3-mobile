@@ -5,11 +5,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cp3.db.MedicamentoDAO
+import com.example.cp3.R
 import com.example.cp3_farmacia.model.Medicamento
-import com.example.cp3_mobile.R
-import com.example.cp3_mobile.database.MedicamentoDAO
-import com.example.cp3_mobile.model.Medicamento
+import com.example.cp3_mobile.db.MedicamentoDAO
+
 
 class AdicionarMedicamentoActivity : AppCompatActivity() {
     private lateinit var edtNome: EditText
